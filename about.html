@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us · Women in Business & Politics Summit 2026</title>
   
-  <!-- Minimalist Favicon (same as home) -->
+  <!-- Favicon (inline minimal) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23800020'/%3E%3Cpath d='M30 72 L44 30 L56 30 L70 72 L58 72 L52 52 L48 52 L42 72 L30 72' fill='%23ffffff'/%3E%3C/svg%3E">
   
   <!-- Fonts & Icons -->
@@ -17,13 +17,13 @@
 
   <style>
     :root {
-      --primary: #800020;        /* Premium Luxury Burgundy */
-      --primary-dark: #5c0017;   
-      --secondary: #006644;      /* Deep Nigerian Emerald Green */
-      --secondary-light: #f0f7f4; 
-      --dark: #0f172a;           /* Sleek Slate Black */
-      --light: #f8fafc;          /* Crisp Off-White */
-      --muted: #64748b;          /* Cool Gray */
+      --primary: #800020;
+      --primary-dark: #5c0017;
+      --secondary: #006644;
+      --secondary-light: #f0f7f4;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --muted: #64748b;
       --white: #ffffff;
       --font: 'Plus Jakarta Sans', system-ui, sans-serif;
       --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,6 +39,7 @@
       color: var(--dark);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -47,12 +48,11 @@
       color: var(--dark);
     }
 
-    /* UTILITIES */
     .text-primary-color { color: var(--primary); }
     .text-secondary-color { color: var(--secondary); }
     .bg-primary-color { background: var(--primary); }
     
-    /* STICKY HEADER & NAVBAR (same as home) */
+    /* NAVBAR */
     .navbar-custom {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px);
@@ -71,16 +71,30 @@
       gap: 12px;
     }
 
+    .navbar-logo-wrap {
+      height: 44px;
+      width: auto;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-logo-wrap img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+
     .nav-link {
       font-weight: 600;
       font-size: 0.95rem;
       color: var(--dark) !important;
       padding: 8px 16px !important;
       transition: var(--transition);
+      border-radius: 40px;
     }
 
     .nav-link:hover, .nav-link.active {
       color: var(--primary) !important;
+      background: rgba(128, 0, 32, 0.04);
     }
 
     .btn-register-nav {
@@ -99,23 +113,30 @@
       box-shadow: 0 6px 20px rgba(128, 0, 32, 0.3);
     }
 
-    /* HERO (about page) */
-    .hero-about {
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(0, 102, 68, 0.85) 100%),
+                  url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
       padding: 140px 0 80px;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(0, 102, 68, 0.8) 100%),
-                  url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" opacity="0.08"%3E%3Cpath d="M0 200L200 0L400 200L200 400Z" fill="%23ffffff"/%3E%3C/svg%3E') center/cover no-repeat;
-      border-bottom: 4px solid var(--primary);
-    }
-
-    .hero-about h1 {
-      font-size: clamp(2.8rem, 6vw, 4.2rem);
-      font-weight: 800;
       color: var(--white);
+      position: relative;
     }
 
-    .hero-about .lead {
-      color: rgba(255, 255, 255, 0.85);
-      max-width: 700px;
+    .page-header h1 {
+      color: var(--white);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+    }
+
+    .page-header h1 span {
+      background: linear-gradient(to right, #ffe066, #f1c40f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-header .lead {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.2rem;
+      max-width: 650px;
     }
 
     .breadcrumb-custom {
@@ -126,15 +147,40 @@
     .breadcrumb-custom .breadcrumb-item a {
       color: rgba(255,255,255,0.7);
       text-decoration: none;
+      transition: var(--transition);
+    }
+    .breadcrumb-custom .breadcrumb-item a:hover {
+      color: var(--white);
     }
     .breadcrumb-custom .breadcrumb-item.active {
-      color: var(--white);
+      color: rgba(255,255,255,0.9);
     }
     .breadcrumb-custom .breadcrumb-item + .breadcrumb-item::before {
       color: rgba(255,255,255,0.4);
     }
 
-    /* GENERIC SECTIONS */
+    .btn-hero-outline {
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      color: var(--white);
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      transition: var(--transition);
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(8px);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-hero-outline:hover {
+      background: var(--white);
+      color: var(--dark);
+      border-color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    }
+
+    /* SECTIONS */
     section { padding: 100px 0; }
     
     .section-sub {
@@ -142,8 +188,8 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 0.8rem;
-      margin-bottom: 0.75rem;
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
       display: block;
     }
 
@@ -158,7 +204,7 @@
     .modern-card {
       background: var(--white);
       border-radius: 20px;
-      padding: 2.5rem;
+      padding: 2.2rem;
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(15, 23, 42, 0.04);
       height: 100%;
@@ -176,6 +222,9 @@
       color: var(--primary);
       margin-bottom: 1.25rem;
       display: inline-block;
+      background: rgba(128, 0, 32, 0.04);
+      padding: 12px;
+      border-radius: 16px;
     }
 
     .img-wrap {
@@ -197,30 +246,72 @@
       transform: scale(1.04);
     }
 
+    /* STATS */
     .stat-card {
       background: var(--white);
-      border-radius: 24px;
+      border-radius: 20px;
       padding: 2rem 1.5rem;
       text-align: center;
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(0,0,0,0.03);
       transition: var(--transition);
+      height: 100%;
     }
 
     .stat-card:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-4px);
+      border-color: rgba(128, 0, 32, 0.1);
     }
 
     .stat-card .number {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 800;
       color: var(--primary);
-      line-height: 1;
-      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
     }
 
-    /* TEAM / LEADERSHIP */
+    .stat-card .label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* TIMELINE */
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      transition: var(--transition);
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-item:hover { transform: translateX(6px); }
+
+    .timeline-year {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      min-width: 80px;
+      opacity: 0.6;
+    }
+
+    .timeline-item h5 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    /* TEAM */
     .team-card {
       background: var(--white);
       border-radius: 24px;
@@ -229,11 +320,13 @@
       transition: var(--transition);
       border: 1px solid rgba(15, 23, 42, 0.04);
       text-align: center;
+      height: 100%;
     }
 
     .team-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-md);
+      border-color: rgba(128, 0, 32, 0.1);
     }
 
     .team-card .team-img {
@@ -258,66 +351,72 @@
       font-size: 0.9rem;
     }
 
-    /* CTA SECTION (reuse) */
+    .team-card .team-body .bio {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* CTA */
     .cta-section {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
       position: relative;
       overflow: hidden;
     }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,240,0.05), transparent 70%);
+      border-radius: 50%;
+      top: -200px;
+      right: -100px;
+      filter: blur(80px);
+    }
 
     .btn-cta-light {
       background: var(--white);
       color: var(--primary);
-      padding: 16px 40px;
-      border-radius: 50px;
+      padding: 16px 44px;
+      border-radius: 60px;
       font-weight: 700;
       transition: var(--transition);
       border: none;
       box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      text-decoration: none;
+      display: inline-block;
     }
-
     .btn-cta-light:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px) scale(1.02);
       box-shadow: 0 8px 25px rgba(0,0,0,0.25);
       background: var(--light);
+      color: var(--primary);
     }
 
-    /* FOOTER (same as home) */
+    /* FOOTER */
     .footer-modern {
       background: var(--dark);
       color: rgba(255, 255, 255, 0.65);
-      padding: 100px 0 40px;
+      padding: 80px 0 40px;
       border-top: 4px solid var(--primary);
     }
-
-    .footer-modern h5 {
-      color: var(--white);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-
+    .footer-modern h5 { color: var(--white); font-weight: 700; margin-bottom: 1.5rem; }
     .footer-links a {
       color: rgba(255, 255, 255, 0.65);
       text-decoration: none;
       transition: var(--transition);
       display: inline-block;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
-
-    .footer-links a:hover {
-      color: var(--white);
-      transform: translateX(4px);
-    }
-
+    .footer-links a:hover { color: var(--white); transform: translateX(6px); }
     .footer-input-group {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 50px;
       padding: 6px;
       display: flex;
     }
-
     .footer-input-group input {
       background: transparent;
       border: none;
@@ -327,11 +426,7 @@
       outline: none;
       font-size: 0.9rem;
     }
-
-    .footer-input-group input::placeholder {
-      color: rgba(255,255,255,0.4);
-    }
-
+    .footer-input-group input::placeholder { color: rgba(255,255,255,0.4); }
     .footer-input-group button {
       background: var(--primary);
       color: var(--white);
@@ -340,41 +435,41 @@
       border-radius: 50px;
       font-weight: 600;
       transition: var(--transition);
-      font-size: 0.9rem;
     }
-
-    .footer-input-group button:hover {
-      background: var(--primary-dark);
-    }
+    .footer-input-group button:hover { background: var(--primary-dark); }
 
     @media (max-width: 992px) {
-      .hero-about { padding: 120px 0 60px; }
-      section { padding: 70px 0; }
+      .page-header { padding: 100px 0 60px; }
+      section { padding: 60px 0; }
+      .img-cover { min-height: 280px; }
+      .team-card .team-img { height: 220px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION (exactly as home) -->
+<!-- NAVIGATION -->
 <header class="sticky-top">
   <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
       <a href="index.html" class="navbar-brand">
-        <i class="fas fa-ribbon"></i> 
-        Women in Business and Politics Summit 2026
+        <div class="navbar-logo-wrap">
+          <img src="logo.jpeg" alt="WIBP Summit Logo">
+        </div>
+        <span class="d-none d-sm-inline">WIBP Summit 2026</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-label="Toggle navigation">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navCollapse">
-        <ul class="navbar-nav align-items-lg-center gap-2">
+        <ul class="navbar-nav align-items-lg-center gap-1">
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link ">About Us</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
           <li class="nav-item"><a href="awards.html" class="nav-link">Awards</a></li>
           <li class="nav-item"><a href="mission.html" class="nav-link">Mission</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item ms-lg-2">
-            <a href="register.html" class="nav-link btn-register-nav">Register Now</a>
+          <li class="nav-item ms-lg-1">
+            <a href="register.html" class="nav-link btn-register-nav">Register</a>
           </li>
         </ul>
       </div>
@@ -382,9 +477,9 @@
   </nav>
 </header>
 
-<!-- HERO About -->
-<section class="hero-about">
-  <div class="container">
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container position-relative" style="z-index: 2;">
     <div class="row">
       <div class="col-lg-10">
         <nav aria-label="breadcrumb" class="breadcrumb-custom">
@@ -393,42 +488,177 @@
             <li class="breadcrumb-item active" aria-current="page">About Us</li>
           </ol>
         </nav>
-        <h1>About the <span style="color: #ffe066;">Summit</span></h1>
+        <h1>About the <span>Summit</span></h1>
         <p class="lead">
           The Women in Business and Politics Lecture & Award Summit is a premium annual gathering that 
-          celebrates, connects, and empowers Nigeria’s most influential female leaders across the corporate, 
+          celebrates, connects, and empowers Nigeria's most influential female leaders across the corporate, 
           political, and social sectors.
         </p>
         <div class="mt-4 d-flex flex-wrap gap-3">
-          <a href="#history" class="btn btn-hero-outline" style="border-color:rgba(255,255,255,0.4); color:white;">Our History</a>
-          <a href="#leadership" class="btn btn-hero-outline" style="border-color:rgba(255,255,255,0.4); color:white;">Leadership</a>
+          <a href="#history" class="btn-hero-outline">Our History</a>
+          <a href="#leadership" class="btn-hero-outline">Leadership</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- CALL TO ACTION (same as home) -->
-<section class="cta-section text-white text-center py-5">
-  <div class="container my-4">
-    <h2 class="display-6 fw-bold mb-3 text-white">Become Part of the 2026 Cohort</h2>
-    <p class="lead mb-4 opacity-75 mx-auto" style="max-width: 650px; font-size: 1.1rem;">
-      Join Nigeria’s most influential women in business and politics. Registration is now open.
-    </p>
-    <a href="register.html" class="btn btn-cta-light">Secure Your Seat</a>
+<!-- OUR STORY -->
+<section id="history" class="bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <span class="section-sub">Our Story</span>
+        <h2 class="section-title">A Movement That Started in 2020</h2>
+        <p class="text-muted">
+          The Women in Business and Politics Summit was born from a simple but powerful idea: to create a premier platform where Nigeria's most accomplished women leaders could connect, share insights, and drive meaningful change.
+        </p>
+        <p class="text-muted">
+          What began as a modest gathering of 50 women has grown into the country's most prestigious forum for female leadership excellence, attracting ministers, CEOs, diplomats, and changemakers from across Africa.
+        </p>
+        <div class="row g-3 mt-3">
+          <div class="col-sm-6">
+            <div class="stat-card">
+              <div class="number">150+</div>
+              <div class="label">Women Honored</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="stat-card">
+              <div class="number">2,000+</div>
+              <div class="label">Community Members</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="img-wrap">
+          <img src="p (14).jpeg" alt="Summit history" class="img-cover">
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER (exactly as home) -->
+<!-- TIMELINE -->
+<section>
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+      <span class="section-sub">Our Journey</span>
+      <h2 class="section-title">Milestones of Impact</h2>
+      <p class="text-muted">From a bold vision to a nationwide movement—track our growth and impact.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div>
+            <h5>Inaugural Summit</h5>
+            <p>First edition hosted with 50 women leaders, introducing the concept of a dedicated platform for female excellence in business and politics.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div>
+            <h5>Expansion to 12 Award Categories</h5>
+            <p>Introduced a comprehensive award structure recognizing excellence across diverse sectors including public service, technology, and healthcare.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div>
+            <h5>Regional Reach & Partnerships</h5>
+            <p>Expanded to include delegates from West Africa, securing partnerships with major corporate organizations and international development agencies.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div>
+            <h5>The Paradigm Edition</h5>
+            <p>Our most ambitious summit yet—celebrating excellence, leadership, and lasting impact with over 500 expected attendees and 50 award recipients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="bg-white">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+      <span class="section-sub">Leadership</span>
+      <h2 class="section-title">Meet Our Advisory Board</h2>
+      <p class="text-muted">Guided by distinguished leaders committed to advancing women in business and politics.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Dr. Amina Bello" class="team-img">
+          <div class="team-body">
+            <h5>Dr. Amina Bello</h5>
+            <div class="role">Chairperson</div>
+            <p class="bio">Former Minister of Finance, renowned economist with 20+ years in public service.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=400&auto=format&fit=crop" alt="Chioma Okafor" class="team-img">
+          <div class="team-body">
+            <h5>Chioma Okafor</h5>
+            <div class="role">Vice Chair</div>
+            <p class="bio">CEO of Sterling Bank, named one of Africa's 50 Most Influential Women in Finance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Hon. Fatima Musa" class="team-img">
+          <div class="team-body">
+            <h5>Hon. Fatima Musa</h5>
+            <div class="role">Secretary</div>
+            <p class="bio">Member of Parliament, advocate for gender equity and legislative reform.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="Ngozi Eze" class="team-img">
+          <div class="team-body">
+            <h5>Ngozi Eze</h5>
+            <div class="role">Board Member</div>
+            <p class="bio">Managing Partner at Eze & Associates, leading corporate law firm with pan-African reach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section text-white text-center py-5">
+  <div class="container my-4 position-relative" style="z-index:2;">
+    <h2 class="display-6 fw-bold mb-3 text-white">Become Part of the 2026 Cohort</h2>
+    <p class="lead mb-4 opacity-75 mx-auto" style="max-width: 650px; font-size: 1.1rem;">
+      Join Nigeria's most influential women in business and politics. Registration is now open.
+    </p>
+    <a href="register.html" class="btn-cta-light">Secure Your Seat</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer-modern">
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4">
-        <h5 class="text-white"><i class="fas fa-ribbon text-primary-color me-2"></i> WIBP SUMMIT</h5>
-        <p class="small opacity-75">
-          Africa's foundational elite forum honoring, bridging, and empowering structural female decision-makers across corporate sectors and government chambers.
-        </p>
+        <h5><i class="fas fa-ribbon text-primary-color me-2"></i>WIBP Summit 2026</h5>
+        <p class="small opacity-75">Africa's foundational elite forum honoring, bridging, and empowering structural female decision-makers across corporate sectors and government chambers.</p>
       </div>
       <div class="col-lg-2 col-md-6 footer-links">
         <h5>Navigation</h5>
@@ -444,6 +674,7 @@
         <ul class="list-unstyled small opacity-75">
           <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> A-Class Event Center, Abuja</li>
           <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +234 803 555 0192</li>
+          <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> info@wibpsummit.org</li>
         </ul>
       </div>
       <div class="col-lg-3">
@@ -455,10 +686,7 @@
         </div>
       </div>
     </div>
-
-    <div class="text-center small opacity-50 mt-5 pt-4 border-top border-secondary">
-      &copy; 2026 Women in Business and Politics Summit. Formulated with architectural precision. Abuja, Nigeria.
-    </div>
+    <div class="text-center small opacity-50 mt-5 pt-4 border-top border-secondary">&copy; 2026 Women in Business and Politics Summit. Abuja, Nigeria.</div>
   </div>
 </footer>
 
