@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Women in Business & Politics Summit 2026 | Abuja</title>
   
-  <!-- Minimalist Favicon -->
-  <link rel="icon" type="image/svg+xml" href="logo.jpeg">
+  <!-- Favicon (inline minimal) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23800020'/%3E%3Cpath d='M30 72 L44 30 L56 30 L70 72 L58 72 L52 52 L48 52 L42 72 L30 72' fill='%23ffffff'/%3E%3C/svg%3E">
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,13 +17,13 @@
 
   <style>
     :root {
-      --primary: #800020;        /* Premium Luxury Burgundy */
-      --primary-dark: #5c0017;   
-      --secondary: #006644;      /* Deep Nigerian Emerald Green */
-      --secondary-light: #f0f7f4; 
-      --dark: #0f172a;           /* Sleek Slate Black */
-      --light: #f8fafc;          /* Crisp Off-White */
-      --muted: #64748b;          /* Cool Gray */
+      --primary: #800020;
+      --primary-dark: #5c0017;
+      --secondary: #006644;
+      --secondary-light: #f0f7f4;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --muted: #64748b;
       --white: #ffffff;
       --font: 'Plus Jakarta Sans', system-ui, sans-serif;
       --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -48,51 +48,44 @@
       color: var(--dark);
     }
 
-    /* UTILITIES */
     .text-primary-color { color: var(--primary); }
     .text-secondary-color { color: var(--secondary); }
     .bg-primary-color { background: var(--primary); }
     
-    /* STICKY HEADER & NAVBAR */
+    /* NAVBAR */
     .navbar-custom {
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 12px 0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 16px 0;
       transition: var(--transition);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
     }
     
     .navbar-brand {
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: var(--primary) !important;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .navbar-logo-wrap {
-      height: 48px;
+      height: 44px;
       width: auto;
       display: flex;
       align-items: center;
-      transition: var(--transition);
     }
     .navbar-logo-wrap img {
       height: 100%;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 2px 6px rgba(128,0,32,0.1));
-    }
-    .navbar-brand:hover .navbar-logo-wrap {
-      transform: scale(1.03);
     }
 
     .nav-link {
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--dark) !important;
       padding: 8px 16px !important;
       transition: var(--transition);
@@ -110,33 +103,29 @@
       padding: 10px 24px !important;
       border-radius: 50px;
       font-weight: 700;
-      box-shadow: 0 4px 14px rgba(128, 0, 32, 0.25);
+      box-shadow: 0 4px 14px rgba(128, 0, 32, 0.2);
       transition: var(--transition);
     }
 
     .btn-register-nav:hover {
       background: var(--primary-dark) !important;
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 28px rgba(128, 0, 32, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(128, 0, 32, 0.3);
     }
 
-    /* HERO SECTION – with floating cloud layers + BACKGROUND IMAGE */
+    /* HERO */
     .hero {
-      min-height: 100vh;
+      min-height: 95vh;
       display: flex;
       align-items: center;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(0, 102, 68, 0.80) 100%),
+                  url('km (4).jpg') center/cover no-repeat;
       position: relative;
-      padding: 140px 0 90px 0;
-      /* background image with overlay */
-      background-image: url('km (4).jpg');
-      background-size: cover;
-      background-position: center 30%;
-      background-repeat: no-repeat;
+      padding: 140px 0 90px;
       isolation: isolate;
       overflow: hidden;
     }
 
-    /* dark overlay for readability */
     .hero::before {
       content: '';
       position: absolute;
@@ -145,45 +134,19 @@
       z-index: 1;
     }
 
-    /* floating cloud blobs (keep for atmosphere) */
     .hero-cloud {
       position: absolute;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,240,0.08), rgba(255,255,255,0.02));
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,240,0.06), rgba(255,255,255,0.01));
       filter: blur(70px);
       z-index: 2;
       pointer-events: none;
       animation: floatCloud 20s ease-in-out infinite alternate;
     }
 
-    .cloud-1 {
-      width: 700px;
-      height: 500px;
-      top: -10%;
-      right: -10%;
-      background: radial-gradient(circle at 70% 40%, rgba(255,215,150,0.12), rgba(255,255,255,0.01));
-      animation-duration: 26s;
-    }
-
-    .cloud-2 {
-      width: 600px;
-      height: 600px;
-      bottom: -15%;
-      left: -8%;
-      background: radial-gradient(circle at 20% 60%, rgba(200,230,255,0.10), rgba(255,255,255,0.01));
-      animation-duration: 30s;
-      animation-delay: -5s;
-    }
-
-    .cloud-3 {
-      width: 400px;
-      height: 400px;
-      top: 20%;
-      left: 40%;
-      background: radial-gradient(circle at 50% 50%, rgba(255,220,180,0.08), transparent 70%);
-      animation-duration: 22s;
-      animation-delay: -10s;
-    }
+    .cloud-1 { width: 700px; height: 500px; top: -10%; right: -10%; animation-duration: 26s; }
+    .cloud-2 { width: 600px; height: 600px; bottom: -15%; left: -8%; animation-duration: 30s; animation-delay: -5s; }
+    .cloud-3 { width: 400px; height: 400px; top: 20%; left: 40%; animation-duration: 22s; animation-delay: -10s; }
 
     @keyframes floatCloud {
       0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
@@ -192,27 +155,22 @@
       100% { transform: translate(20px, -10px) scale(1.05) rotate(1deg); }
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 10; /* above overlay & clouds */
-    }
+    .hero-content { position: relative; z-index: 10; }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       color: var(--white);
       font-weight: 700;
-      font-size: 0.7rem;
-      letter-spacing: 2.5px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
       padding: 8px 24px;
       border-radius: 50px;
       text-transform: uppercase;
       margin-bottom: 2rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
 
     .hero h1 {
@@ -231,12 +189,11 @@
     }
 
     .hero .lead {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 1.2rem;
       max-width: 640px;
       margin-top: 1.5rem;
       font-weight: 400;
-      backdrop-filter: blur(4px);
     }
 
     .hero-meta {
@@ -260,7 +217,6 @@
     .hero-meta-item i {
       font-size: 1.4rem;
       color: #f5c542;
-      filter: drop-shadow(0 0 8px rgba(245,197,66,0.2));
     }
 
     .btn-hero-primary {
@@ -272,12 +228,15 @@
       box-shadow: 0 8px 32px rgba(128, 0, 32, 0.35);
       transition: var(--transition);
       border: none;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-hero-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-4px) scale(1.02);
       box-shadow: 0 16px 48px rgba(128, 0, 32, 0.5);
+      color: var(--white);
     }
 
     .btn-hero-outline {
@@ -289,6 +248,8 @@
       transition: var(--transition);
       background: rgba(255,255,255,0.02);
       backdrop-filter: blur(8px);
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-hero-outline:hover {
@@ -299,15 +260,15 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.2);
     }
 
-    /* GENERIC SECTIONS */
+    /* SECTIONS */
     section { padding: 100px 0; }
     
     .section-sub {
       color: var(--primary);
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.7rem;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
       margin-bottom: 0.5rem;
       display: block;
     }
@@ -319,51 +280,45 @@
       margin-bottom: 1.5rem;
     }
 
-    /* sexy modern cards with glassmorphism */
+    /* CARDS */
     .modern-card {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 24px;
-      padding: 2.2rem 1.8rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(15, 23, 42, 0.04);
       height: 100%;
       transition: var(--transition);
     }
 
     .modern-card:hover {
-      box-shadow: 0 20px 50px rgba(128, 0, 32, 0.08);
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.8);
-      border-color: rgba(128, 0, 32, 0.15);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-6px);
+      border-color: rgba(128, 0, 32, 0.1);
     }
 
     .modern-card i {
-      font-size: 2.4rem;
+      font-size: 2rem;
       color: var(--primary);
       margin-bottom: 1.25rem;
       display: inline-block;
       background: rgba(128, 0, 32, 0.04);
       padding: 12px;
-      border-radius: 20px;
+      border-radius: 16px;
     }
 
     .theme-block {
       background: var(--secondary-light);
-      color: var(--secondary);
-      border-radius: 20px;
+      border-radius: 16px;
       padding: 32px;
-      border-left: 6px solid var(--primary);
-      backdrop-filter: blur(8px);
+      border-left: 5px solid var(--primary);
     }
 
     .img-wrap {
-      border-radius: 32px;
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+      box-shadow: var(--shadow-md);
       position: relative;
-      transition: var(--transition);
     }
 
     .img-cover {
@@ -378,17 +333,15 @@
       transform: scale(1.04);
     }
 
-    /* AWARD BADGES – elevated */
+    /* AWARD BADGES */
     .award-badge-card {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 20px;
+      background: var(--white);
+      border-radius: 16px;
       padding: 24px 12px;
       text-align: center;
       transition: var(--transition);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -398,18 +351,17 @@
     }
 
     .award-badge-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 50px rgba(128, 0, 32, 0.08);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
       border-color: var(--primary);
-      background: rgba(255, 255, 255, 0.8);
     }
 
     .award-badge-card i {
       font-size: 2rem;
       color: var(--primary);
-      background: rgba(128, 0, 32, 0.04);
-      width: 64px;
-      height: 64px;
+      background: rgba(128, 0, 32, 0.05);
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -420,7 +372,6 @@
     .award-badge-card:hover i {
       background: var(--primary);
       color: var(--white);
-      box-shadow: 0 8px 24px rgba(128, 0, 32, 0.2);
     }
 
     .award-badge-card strong {
@@ -437,22 +388,19 @@
       font-size: 0.9rem;
     }
 
-    /* four pillars – glassmorphism */
+    /* PILLARS */
     .mission-pillar {
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 28px;
+      background: var(--white);
+      border-radius: 20px;
       padding: 2rem 1.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       height: 100%;
       transition: var(--transition);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.02);
+      box-shadow: var(--shadow-sm);
     }
     .mission-pillar:hover {
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.7);
-      box-shadow: 0 20px 60px rgba(128, 0, 32, 0.06);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
       border-color: rgba(128, 0, 32, 0.1);
     }
     .pillar-icon {
@@ -466,18 +414,18 @@
       font-size: 1.8rem;
       color: white;
     }
-    .pillar-icon.red { background: var(--primary); box-shadow: 0 8px 24px rgba(128,0,32,0.2); }
-    .pillar-icon.green { background: var(--secondary); box-shadow: 0 8px 24px rgba(0,102,68,0.2); }
+    .pillar-icon.red { background: var(--primary); }
+    .pillar-icon.green { background: var(--secondary); }
 
     .text-green { color: var(--secondary); }
 
-    /* strategic goals – sexy timeline */
+    /* GOALS */
     .strategic-goal {
       display: flex;
       align-items: flex-start;
       gap: 1.8rem;
       padding: 1.2rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
       transition: var(--transition);
     }
     .strategic-goal:last-child { border-bottom: none; }
@@ -486,7 +434,7 @@
       font-size: 2.2rem;
       font-weight: 800;
       color: var(--primary);
-      opacity: 0.2;
+      opacity: 0.15;
       line-height: 1;
       min-width: 60px;
       letter-spacing: -0.04em;
@@ -518,36 +466,38 @@
       font-weight: 700;
       transition: var(--transition);
       border: none;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      text-decoration: none;
+      display: inline-block;
     }
     .btn-cta-light:hover {
       transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
       background: var(--light);
+      color: var(--primary);
     }
 
-    /* FOOTER with glass */
+    /* FOOTER */
     .footer-modern {
       background: var(--dark);
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.65);
       padding: 80px 0 40px;
-      border-top: 2px solid var(--primary);
+      border-top: 4px solid var(--primary);
     }
-    .footer-modern h5 { color: var(--white); font-weight: 700; }
+    .footer-modern h5 { color: var(--white); font-weight: 700; margin-bottom: 1.5rem; }
     .footer-links a {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.65);
       text-decoration: none;
       transition: var(--transition);
       display: inline-block;
       margin-bottom: 0.6rem;
-      font-weight: 400;
     }
     .footer-links a:hover { color: var(--white); transform: translateX(6px); }
     .footer-input-group {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 60px;
-      padding: 4px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px;
       display: flex;
     }
     .footer-input-group input {
@@ -559,13 +509,13 @@
       outline: none;
       font-size: 0.9rem;
     }
-    .footer-input-group input::placeholder { color: rgba(255,255,255,0.25); }
+    .footer-input-group input::placeholder { color: rgba(255,255,255,0.4); }
     .footer-input-group button {
       background: var(--primary);
       color: var(--white);
       border: none;
       padding: 10px 24px;
-      border-radius: 60px;
+      border-radius: 50px;
       font-weight: 600;
       transition: var(--transition);
     }
@@ -590,7 +540,7 @@
         <div class="navbar-logo-wrap">
           <img src="logo.jpeg" alt="WIBP Summit Logo">
         </div>
-        <span class="d-none d-sm-inline">Women in Business and Politics Summit  2026</span>
+        <span class="d-none d-sm-inline">WIBP Summit 2026</span>
       </a>
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -611,7 +561,7 @@
   </nav>
 </header>
 
-<!-- HERO with background image & cloud layers -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-cloud cloud-1"></div>
   <div class="hero-cloud cloud-2"></div>
@@ -623,7 +573,7 @@
         <span class="hero-badge"><i class="fas fa-shield-halved me-2"></i>Official Summit 2026</span>
         <h1>Celebrating <span>Excellence</span>,<br>Leadership & Lasting Impact</h1>
         <p class="lead">
-            Nigeria’s premier gathering of visionary women leaders—a room where exceptional minds in business strategy and structural politics converge to reshape Africa’s economic blueprints.
+            Nigeria's premier gathering of visionary women leaders—a room where exceptional minds in business strategy and structural politics converge to reshape Africa's economic blueprints.
         </p>
 
         <div class="hero-meta">
@@ -642,15 +592,15 @@
         </div>
 
         <div class="d-flex flex-wrap gap-3">
-          <a href="#about" class="btn btn-hero-primary">Explore Summit</a>
-          <a href="awards.html" class="btn btn-hero-outline">Award Categories</a>
+          <a href="#about" class="btn-hero-primary">Explore Summit</a>
+          <a href="awards.html" class="btn-hero-outline">Award Categories</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 <section id="about" class="bg-white">
   <div class="container">
     <div class="row g-5 align-items-center">
@@ -678,7 +628,7 @@
             <div class="modern-card">
               <i class="fa-regular fa-eye"></i>
               <h5 class="fw-bold mb-2">Our Vision</h5>
-              <p class="text-muted small mb-0">Africa’s foremost benchmark for female corporate and political leadership excellence.</p>
+              <p class="text-muted small mb-0">Africa's foremost benchmark for female corporate and political leadership excellence.</p>
             </div>
           </div>
           <div class="col-sm-6">
@@ -694,13 +644,13 @@
   </div>
 </section>
 
-<!-- AWARDS SECTION -->
+<!-- AWARDS -->
 <section id="awards">
   <div class="container">
     <div class="text-center mx-auto mb-5" style="max-width: 650px;">
       <span class="section-sub">Recognition & Honors</span>
       <h2 class="section-title">Award Sectors</h2>
-      <p class="text-muted">Honoring exceptional individuals reshaping Nigeria’s economic and leadership landscape.</p>
+      <p class="text-muted">Honoring exceptional individuals reshaping Nigeria's economic and leadership landscape.</p>
     </div>
 
     <div class="row g-3 g-md-4">
@@ -730,7 +680,7 @@
         <p class="text-muted mb-4">
           A curated corporate biosphere engineered for sustainable network architecture, investment paths, and cross-sector influence.
         </p>
-        <div class="p-4 bg-light rounded-4 border border-light-subtle" style="backdrop-filter: blur(8px);">
+        <div class="p-4 bg-light rounded-4 border border-light-subtle">
           <h5 class="fw-bold mb-4 text-dark">High-Level Deliverables</h5>
           <ul class="list-unstyled checklist mb-0">
             <li class="mb-3 d-flex align-items-start gap-3"><i class="fa-solid fa-check mt-1"></i><span>Keynote presentations from celebrated global and local stateswomen.</span></li>
@@ -750,7 +700,7 @@
   </div>
 </section>
 
-<!-- FOUR PILLARS -->
+<!-- PILLARS -->
 <section id="pillars" class="bg-white">
   <div class="container">
     <div class="text-center mx-auto mb-5" style="max-width: 720px;">
@@ -768,7 +718,7 @@
   </div>
 </section>
 
-<!-- STRATEGIC GOALS 2026 -->
+<!-- GOALS -->
 <section id="goals">
   <div class="container">
     <div class="row g-5 align-items-center">
@@ -792,11 +742,11 @@
 <!-- CTA -->
 <section class="cta-section text-white text-center py-5">
   <div class="container my-4 position-relative" style="z-index:2;">
-    <h2 class="display-6 fw-bold mb-3 text-white">Join Nigeria’s Premier Women's Leadership Platform</h2>
+    <h2 class="display-6 fw-bold mb-3 text-white">Join Nigeria's Premier Women's Leadership Platform</h2>
     <p class="lead mb-4 opacity-75 mx-auto" style="max-width: 650px; font-size: 1.1rem;">
       Limited seats are reserved for corporate executives and political portfolios. Secure your place today.
     </p>
-    <a href="register.html" class="btn btn-cta-light">Register For The 2026 Summit</a>
+    <a href="register.html" class="btn-cta-light">Register For The 2026 Summit</a>
   </div>
 </section>
 
@@ -804,10 +754,35 @@
 <footer class="footer-modern">
   <div class="container">
     <div class="row g-5">
-      <div class="col-lg-4"><h5><i class="fas fa-ribbon text-primary-color me-2"></i>Women in Business and Politics Summit 2026  </h5><p class="small opacity-75">Africa's foundational elite forum honoring, bridging, and empowering structural female decision-makers across corporate sectors and government chambers.</p></div>
-      <div class="col-lg-2 col-md-6 footer-links"><h5>Navigation</h5><ul class="list-unstyled"><li><a href="index.html">Home Base</a></li><li><a href="about.html">About Context</a></li><li><a href="awards.html">Accolades</a></li><li><a href="mission.html">Our Directives</a></li></ul></div>
-      <div class="col-lg-3 col-md-6"><h5>Summit Coordination</h5><ul class="list-unstyled small opacity-75"><li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> A-Class Event Center, Abuja</li><li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +234 803 555 0192</li></ul></div>
-      <div class="col-lg-3"><h5>Executive Circular</h5><p class="small opacity-75 mb-3">Subscribe for panel drops, keynote announcements, and verification windows.</p><div class="footer-input-group"><input type="email" placeholder="Corporate Email Address" aria-label="Corporate Email Address"><button type="button">Subscribe</button></div></div>
+      <div class="col-lg-4">
+        <h5><i class="fas fa-ribbon text-primary-color me-2"></i>WIBP Summit 2026</h5>
+        <p class="small opacity-75">Africa's foundational elite forum honoring, bridging, and empowering structural female decision-makers across corporate sectors and government chambers.</p>
+      </div>
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h5>Navigation</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home Base</a></li>
+          <li><a href="about.html">About Context</a></li>
+          <li><a href="awards.html">Accolades</a></li>
+          <li><a href="mission.html">Our Directives</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Summit Coordination</h5>
+        <ul class="list-unstyled small opacity-75">
+          <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> A-Class Event Center, Abuja</li>
+          <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +234 803 555 0192</li>
+          <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> info@wibpsummit.org</li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Executive Circular</h5>
+        <p class="small opacity-75 mb-3">Subscribe for panel drops, keynote announcements, and verification windows.</p>
+        <div class="footer-input-group">
+          <input type="email" placeholder="Corporate Email Address" aria-label="Corporate Email Address">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
     </div>
     <div class="text-center small opacity-50 mt-5 pt-4 border-top border-secondary">&copy; 2026 Women in Business and Politics Summit. Abuja, Nigeria.</div>
   </div>
