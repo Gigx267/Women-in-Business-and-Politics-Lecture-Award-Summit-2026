@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women in Business & Politics Summit 2026 | Awards</title>
+  
+  <!-- Favicon (inline minimal) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23800020'/%3E%3Cpath d='M30 72 L44 30 L56 30 L70 72 L58 72 L52 52 L48 52 L42 72 L30 72' fill='%23ffffff'/%3E%3C/svg%3E">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #800020;        /* Luxury Burgundy */
+      --primary-dark: #5c0017;   
+      --secondary: #006644;      /* Nigerian Emerald */
+      --secondary-light: #f0f7f4; 
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+      --shadow-md: 0 12px 24px -4px rgb(0 0 0 / 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: var(--font);
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+    }
+
+    .text-primary-color { color: var(--primary); }
+    .text-secondary-color { color: var(--secondary); }
+    .bg-primary-color { background: var(--primary); }
+    
+    /* NAVBAR */
+    .navbar-custom {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 16px 0;
+      transition: var(--transition);
+    }
+    
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--primary) !important;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--dark) !important;
+      padding: 8px 16px !important;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .btn-register-nav {
+      background: var(--primary) !important;
+      color: var(--white) !important;
+      padding: 10px 24px !important;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(128, 0, 32, 0.2);
+      transition: var(--transition);
+    }
+
+    .btn-register-nav:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(128, 0, 32, 0.3);
+    }
+
+    /* SECTION HEADER */
+    section { padding: 100px 0 80px; }
+    .section-sub {
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    /* FILTER BUTTONS */
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-filter {
+      background: transparent;
+      border: 1.5px solid rgba(15, 23, 42, 0.12);
+      padding: 10px 28px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--dark);
+      transition: var(--transition);
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-filter:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-filter.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(128, 0, 32, 0.25);
+    }
+
+    /* PREMIUM AWARD CARD */
+    .award-premium-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.2rem 1.8rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      height: 100%;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .award-premium-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .award-premium-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(128, 0, 32, 0.1);
+    }
+
+    .award-premium-card:hover::after {
+      opacity: 1;
+    }
+
+    .award-icon-box {
+      width: 64px;
+      height: 64px;
+      background: rgba(128, 0, 32, 0.04);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      transition: var(--transition);
+    }
+
+    .award-premium-card:hover .award-icon-box {
+      background: var(--primary);
+      color: var(--white);
+      transform: rotate(-4deg) scale(1.02);
+    }
+
+    .award-premium-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .award-premium-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .award-meta-tag {
+      display: inline-block;
+      background: var(--secondary-light);
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.5px;
+      padding: 6px 14px;
+      border-radius: 40px;
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+
+    /* NOMINATION CALLOUT */
+    .nomination-callout {
+      background: rgba(128, 0, 32, 0.02);
+      border-radius: 28px;
+      border: 1px solid rgba(128, 0, 32, 0.06);
+      backdrop-filter: blur(4px);
+    }
+
+    .nomination-callout .btn-register-nav {
+      background: var(--primary) !important;
+      color: var(--white) !important;
+      padding: 14px 32px !important;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(128, 0, 32, 0.2);
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nomination-callout .btn-register-nav:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(128, 0, 32, 0.3);
+    }
+
+    /* FOOTER */
+    .footer-modern {
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 80px 0 40px;
+      border-top: 4px solid var(--primary);
+      margin-top: 60px;
+    }
+
+    .footer-modern h5 {
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    .footer-input-group {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      padding: 6px;
+      display: flex;
+    }
+
+    .footer-input-group input {
+      background: transparent;
+      border: none;
+      padding: 10px 16px;
+      color: var(--white);
+      width: 100%;
+      outline: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-input-group input::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-input-group button {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-input-group button:hover {
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 992px) {
+      section { padding: 60px 0; }
+      .nomination-callout { text-align: center; }
+      .nomination-callout .col-lg-4 { text-align: center !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <i class="fas fa-ribbon"></i> 
+        WIBP Summit 2026
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navCollapse">
+        <ul class="navbar-nav align-items-lg-center gap-2">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="awards.html" class="nav-link active">Awards</a></li>
+          <li class="nav-item"><a href="mission.html" class="nav-link">Mission</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="register.html" class="nav-link btn-register-nav">Register Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- AWARDS SECTION -->
+<section>
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+      <span class="section-sub">Recognition & Honors</span>
+      <h2 class="section-title">Award Sectors</h2>
+      <p class="text-muted">Our awards honor pioneering milestones, ethical governance, and strategic transformations across twelve critical socio-economic matrixes.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-container">
+      <button class="btn-filter active" onclick="filterSectors('all', this)">All Sectors</button>
+      <button class="btn-filter" onclick="filterSectors('corporate', this)">Corporate & Tech</button>
+      <button class="btn-filter" onclick="filterSectors('governance', this)">Governance & Impact</button>
+    </div>
+
+    <!-- Award Cards Grid -->
+    <div class="row g-4" id="awardsGrid">
+      
+      <!-- Public Service -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="governance">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-landmark"></i></div>
+          <h4>Public Service Excellence</h4>
+          <p>Honoring women in civil service structures whose absolute transparency, institutional reforms, and policy execution set national operational precedents.</p>
+          <span class="award-meta-tag">Governance</span>
+        </div>
+      </div>
+
+      <!-- Politics -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="governance">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-gavel"></i></div>
+          <h4>Politics & Governance</h4>
+          <p>Celebrating stateswomen breaking legislative ceilings, driving inclusive statutory frameworks, and executing impactful regional transformations.</p>
+          <span class="award-meta-tag">Governance</span>
+        </div>
+      </div>
+
+      <!-- Business -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="corporate">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-chart-line"></i></div>
+          <h4>Business & Entrepreneurship</h4>
+          <p>Recognizing visionary conglomerate founders and CEOs expanding market shares, local value chains, and scaling scalable enterprise structures.</p>
+          <span class="award-meta-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Oil & Gas -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="corporate">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-gas-pump"></i></div>
+          <h4>Energy, Utilities, Oil & Gas</h4>
+          <p>Commending engineers and board executives pioneering energy security, green transition pathways, and high-tier downstream operational mastery.</p>
+          <span class="award-meta-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Finance -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="corporate">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-university"></i></div>
+          <h4>Banking & Financial Architecture</h4>
+          <p>Vetting elite asset managers and banking executives designing financial inclusion strategies, digital asset channels, and resilient monetary systems.</p>
+          <span class="award-meta-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Media -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="corporate">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-newspaper"></i></div>
+          <h4>Media & Communications</h4>
+          <p>Honoring investigative journalists, broadcasting magnates, and PR strategists restructuring corporate transparency and public intelligence infrastructure.</p>
+          <span class="award-meta-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Healthcare -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="governance">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-heartbeat"></i></div>
+          <h4>Healthcare Systems & Medical Research</h4>
+          <p>Celebrating health administrators, neuroscientists, and pharmaceutical visionaries driving regional vaccine lines and community primary care logistics.</p>
+          <span class="award-meta-tag">Impact</span>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="governance">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-graduation-cap"></i></div>
+          <h4>Education Ecosystems & Academia</h4>
+          <p>Honoring research professors and digital ed-tech architects optimizing public school curricula, academic research output, and skill-tech acquisition channels.</p>
+          <span class="award-meta-tag">Impact</span>
+        </div>
+      </div>
+
+      <!-- Law -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="corporate">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-balance-scale"></i></div>
+          <h4>Law & Jurisprudence</h4>
+          <p>Recognizing senior advocates, corporate lawyers, and judicial officers defending human rights records, IP frameworks, and high-value mergers.</p>
+          <span class="award-meta-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Tech -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="corporate">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-microchip"></i></div>
+          <h4>Technology Innovation</h4>
+          <p>Validating tech founders, AI researchers, and fintech engineers creating local sovereign software products and scalable payment integrations.</p>
+          <span class="award-meta-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Philanthropy -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="governance">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-hands-helping"></i></div>
+          <h4>Philanthropy & Social Impact Hubs</h4>
+          <p>Honoring intentional NGO leaders operating measurable grassroots programs, economic empowerment hubs, and structural crisis responses.</p>
+          <span class="award-meta-tag">Impact</span>
+        </div>
+      </div>
+
+      <!-- Diplomacy -->
+      <div class="col-lg-4 col-md-6 award-item-node" data-sector="governance">
+        <div class="award-premium-card">
+          <div class="award-icon-box"><i class="fas fa-globe-africa"></i></div>
+          <h4>Global Diplomacy & Foreign Relations</h4>
+          <p>Recognizing ambassadors, consulate attachés, and global agency executives steering structural trade negotiations and bilateral peace agreements.</p>
+          <span class="award-meta-tag">Governance</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOMINATION CALLOUT BANNER -->
+<section class="bg-white pt-0">
+  <div class="container">
+    <div class="nomination-callout p-4 p-lg-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <h3 class="fw-bold mb-2 text-dark">Nomination & Vetting Process</h3>
+          <p class="text-muted small mb-0">
+            Our assessment protocol uses independent cross-industry tracking alongside deep media audits to evaluate nominations. Self-nominations and institutional submissions pass through three rounds of validation by our independent expert advisory board.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a href="register.html" class="btn-register-nav px-4 py-3 text-nowrap">Submit A Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-modern">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <h5 class="text-white"><i class="fas fa-ribbon text-primary-color me-2"></i> WIBP SUMMIT</h5>
+        <p class="small opacity-75">
+          Africa's foundational elite forum honoring, bridging, and empowering structural female decision-makers across corporate sectors and government chambers.
+        </p>
+      </div>
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h5>Navigation</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home Base</a></li>
+          <li><a href="about.html">About Context</a></li>
+          <li><a href="awards.html">Accolades</a></li>
+          <li><a href="mission.html">Our Directives</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Summit Coordination</h5>
+        <ul class="list-unstyled small opacity-75">
+          <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> A-Class Event Center, Abuja</li>
+          <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +234 803 555 0192</li>
+          <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> info@wibpsummit.org</li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Executive Circular</h5>
+        <p class="small opacity-75 mb-3">Subscribe for panel drops, keynote announcements, and verification windows.</p>
+        <div class="footer-input-group">
+          <input type="email" placeholder="Corporate Email Address" aria-label="Corporate Email Address">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center small opacity-50 mt-5 pt-4 border-top border-secondary">
+      &copy; 2026 Women in Business and Politics Summit. Formulated with architectural precision. Abuja, Nigeria.
+    </div>
+  </div>
+</footer>
+
+<!-- FILTER JAVASCRIPT -->
+<script>
+  function filterSectors(sector, buttonElement) {
+    // Update active button state
+    const buttons = document.querySelectorAll('.btn-filter');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (buttonElement) {
+      buttonElement.classList.add('active');
+    }
+
+    // Filter cards
+    const nodes = document.querySelectorAll('.award-item-node');
+    nodes.forEach(node => {
+      if (sector === 'all') {
+        node.style.display = 'block';
+      } else {
+        const currentSector = node.getAttribute('data-sector');
+        node.style.display = currentSector === sector ? 'block' : 'none';
+      }
+    });
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

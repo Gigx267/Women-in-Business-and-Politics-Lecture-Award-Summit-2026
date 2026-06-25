@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women in Business & Politics Summit 2026 | Our Mission</title>
+  
+  <!-- Favicon (inline minimal) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23800020'/%3E%3Cpath d='M30 72 L44 30 L56 30 L70 72 L58 72 L52 52 L48 52 L42 72 L30 72' fill='%23ffffff'/%3E%3C/svg%3E">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #800020;        /* Luxury Burgundy */
+      --primary-dark: #5c0017;   
+      --secondary: #006644;      /* Nigerian Emerald */
+      --secondary-light: #f0f7f4; 
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --muted: #64748b;
+      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+      --shadow-md: 0 12px 24px -4px rgb(0 0 0 / 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: var(--font);
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+    }
+
+    .text-primary-color { color: var(--primary); }
+    .text-secondary-color { color: var(--secondary); }
+    .bg-primary-color { background: var(--primary); }
+    
+    /* NAVBAR */
+    .navbar-custom {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 16px 0;
+      transition: var(--transition);
+    }
+    
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--primary) !important;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--dark) !important;
+      padding: 8px 16px !important;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .btn-register-nav {
+      background: var(--primary) !important;
+      color: var(--white) !important;
+      padding: 10px 24px !important;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(128, 0, 32, 0.2);
+      transition: var(--transition);
+    }
+
+    .btn-register-nav:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(128, 0, 32, 0.3);
+    }
+
+    /* SECTION HEADER */
+    section { padding: 100px 0 80px; }
+    .section-sub {
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    /* MISSION HEADER */
+    .mission-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(0, 102, 68, 0.85) 100%),
+                  url('kmm.png') center/cover no-repeat;
+      padding: 140px 0 80px;
+      color: var(--white);
+      position: relative;
+    }
+
+    .mission-header h1 {
+      color: var(--white);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+    }
+
+    .mission-header p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.2rem;
+      max-width: 700px;
+    }
+
+    /* PILLAR CARDS */
+    .pillar-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      height: 100%;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(128, 0, 32, 0.1);
+    }
+
+    .pillar-card:hover::before {
+      opacity: 1;
+    }
+
+    .pillar-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .pillar-icon.burgundy { background: var(--primary); }
+    .pillar-icon.green { background: var(--secondary); }
+    .pillar-icon.dark { background: var(--dark); }
+
+    .pillar-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .pillar-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pillar-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .pillar-card ul li {
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pillar-card ul li i {
+      color: var(--secondary);
+      font-size: 0.8rem;
+    }
+
+    /* STRATEGIC GOALS */
+    .goal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.8rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      transition: var(--transition);
+    }
+
+    .goal-item:last-child { border-bottom: none; }
+    .goal-item:hover { transform: translateX(8px); }
+
+    .goal-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      opacity: 0.15;
+      line-height: 1;
+      min-width: 65px;
+      letter-spacing: -0.04em;
+    }
+
+    .goal-item h5 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .goal-item p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    /* VALUES SECTION */
+    .value-badge {
+      background: rgba(128, 0, 32, 0.04);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      height: 100%;
+    }
+
+    .value-badge:hover {
+      border-color: rgba(128, 0, 32, 0.1);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .value-badge i {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .value-badge h5 {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .value-badge p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* CTA SECTION */
+    .cta-mission {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    .cta-mission::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+      top: -150px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .btn-cta-light {
+      background: var(--white);
+      color: var(--primary);
+      padding: 16px 44px;
+      border-radius: 60px;
+      font-weight: 700;
+      transition: var(--transition);
+      border: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-cta-light:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      background: var(--light);
+    }
+
+    /* FOOTER */
+    .footer-modern {
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 80px 0 40px;
+      border-top: 4px solid var(--primary);
+    }
+
+    .footer-modern h5 {
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    .footer-input-group {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      padding: 6px;
+      display: flex;
+    }
+
+    .footer-input-group input {
+      background: transparent;
+      border: none;
+      padding: 10px 16px;
+      color: var(--white);
+      width: 100%;
+      outline: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-input-group input::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-input-group button {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-input-group button:hover {
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 992px) {
+      section { padding: 60px 0; }
+      .mission-header { padding: 100px 0 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <i class="fas fa-ribbon"></i> 
+        WIBP Summit 2026
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navCollapse">
+        <ul class="navbar-nav align-items-lg-center gap-2">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="awards.html" class="nav-link">Awards</a></li>
+          <li class="nav-item"><a href="mission.html" class="nav-link active">Mission</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="register.html" class="nav-link btn-register-nav">Register Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- MISSION HEADER -->
+<section class="mission-header">
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row">
+      <div class="col-lg-8">
+        <span class="section-sub" style="color: rgba(255,255,255,0.7);">Our Directive</span>
+        <h1>Driving Structural <span style="background: linear-gradient(to right, #ffe066, #f1c40f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Leadership</span> Transformation</h1>
+        <p>Our mission is to accelerate the rise of women in decision-making positions across business and governance, creating a more equitable and prosperous Africa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR PILLARS -->
+<section>
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+      <span class="section-sub">Strategic Pillars</span>
+      <h2 class="section-title">Four Pillars Driving Our Mission</h2>
+      <p class="text-muted">Everything we do is anchored on these interconnected pillars that create lasting impact.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Pillar 1 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-card">
+          <div class="pillar-icon burgundy"><i class="fas fa-trophy"></i></div>
+          <h4>Celebrate Excellence</h4>
+          <p>We identify and publicly honor women who have demonstrated exceptional leadership and measurable impact in their fields.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> 12 award categories</li>
+            <li><i class="fas fa-check"></i> Independent nomination panel</li>
+            <li><i class="fas fa-check"></i> Lifetime achievement recognition</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-card">
+          <div class="pillar-icon green"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h4>Share Knowledge</h4>
+          <p>Curated world-class lectures, panel discussions, and masterclasses led by distinguished leaders and subject matter experts.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Keynote lectures</li>
+            <li><i class="fas fa-check"></i> CEO roundtables</li>
+            <li><i class="fas fa-check"></i> Policy masterclasses</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-card">
+          <div class="pillar-icon dark"><i class="fas fa-hand-holding-heart"></i></div>
+          <h4>Build Networks</h4>
+          <p>Strategic connections between women leaders, policymakers, investors, and development partners for sustainable collaboration.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> B2B matchmaking</li>
+            <li><i class="fas fa-check"></i> Mentorship pairings</li>
+            <li><i class="fas fa-check"></i> Alumni community</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="pillar-card">
+          <div class="pillar-icon burgundy"><i class="fas fa-bullhorn"></i></div>
+          <h4>Advocate for Change</h4>
+          <p>Using our platform to advocate for policies and practices that advance gender-balanced leadership across all sectors.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Policy communiqués</li>
+            <li><i class="fas fa-check"></i> Media advocacy</li>
+            <li><i class="fas fa-check"></i> Legislative engagement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIC GOALS 2026 -->
+<section class="bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <span class="section-sub">2026 Roadmap</span>
+        <h2 class="section-title">Strategic Goals for This Year</h2>
+        <p class="text-muted fs-5">The 2026 edition is designed to be our most impactful yet.</p>
+        <p class="text-muted">Each goal is measurable and tied to concrete outcomes for attendees, award recipients, and the broader ecosystem.</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="goal-item">
+          <div class="goal-number">01</div>
+          <div>
+            <h5>Recognize 50+ Outstanding Women</h5>
+            <p>Honor a diverse cohort of trailblazers across all 12 award categories, with expanded focus on emerging leaders under 40.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-number">02</div>
+          <div>
+            <h5>Facilitate 200+ Strategic Connections</h5>
+            <p>Through structured networking sessions, B2B matchmaking, and mentorship pairings that outlast the event.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-number">03</div>
+          <div>
+            <h5>Produce a Policy Communiqué</h5>
+            <p>Deliver actionable recommendations to government and private sector leaders on advancing women's leadership.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-number">04</div>
+          <div>
+            <h5>Launch a Year-Round Mentorship Program</h5>
+            <p>Move beyond a one-day summit by establishing a structured mentorship initiative connecting established leaders with emerging talents.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-number">05</div>
+          <div>
+            <h5>Achieve 40% First-Time Attendee Participation</h5>
+            <p>Expand our reach by ensuring significant representation of new voices, particularly from underserved regions and sectors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section>
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+      <span class="section-sub">Our Ethos</span>
+      <h2 class="section-title">Core Values That Guide Us</h2>
+      <p class="text-muted">These principles shape every decision we make and every action we take as an organization.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="value-badge">
+          <i class="fas fa-shield-alt"></i>
+          <h5>Integrity</h5>
+          <p>Unwavering commitment to transparency, fairness, and ethical conduct in all our processes.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="value-badge">
+          <i class="fas fa-users"></i>
+          <h5>Inclusivity</h5>
+          <p>Ensuring diverse representation across sectors, regions, and generations in everything we do.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="value-badge">
+          <i class="fas fa-lightbulb"></i>
+          <h5>Innovation</h5>
+          <p>Championing forward-thinking approaches to leadership development and economic empowerment.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="value-badge">
+          <i class="fas fa-handshake"></i>
+          <h5>Collaboration</h5>
+          <p>Building bridges across sectors to create sustainable impact through collective action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STATEMENT -->
+<section class="bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <span class="section-sub">Our Impact</span>
+        <h2 class="section-title">Measurable Change, Lasting Legacy</h2>
+        <p class="text-muted">Since our inaugural summit, we have built a thriving community of women leaders who are reshaping Nigeria's economic and political landscape.</p>
+        <div class="row g-4 mt-3">
+          <div class="col-6">
+            <div class="p-4 bg-light rounded-4 text-center">
+              <h3 class="text-primary-color fw-bold display-6">150+</h3>
+              <p class="text-muted small mb-0">Women Honored</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-4 bg-light rounded-4 text-center">
+              <h3 class="text-primary-color fw-bold display-6">2,000+</h3>
+              <p class="text-muted small mb-0">Community Members</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-4 bg-light rounded-4 text-center">
+              <h3 class="text-primary-color fw-bold display-6">12</h3>
+              <p class="text-muted small mb-0">Award Sectors</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-4 bg-light rounded-4 text-center">
+              <h3 class="text-primary-color fw-bold display-6">30+</h3>
+              <p class="text-muted small mb-0">Partner Organizations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-white rounded-4 p-5 shadow-sm" style="border: 1px solid rgba(0,0,0,0.04);">
+          <blockquote class="mb-0">
+            <p class="fs-5 fst-italic text-muted">"The Women in Business and Politics Summit is not just an event—it's a movement that is systematically changing the face of leadership in Nigeria. We are building a legacy of excellence."</p>
+            <footer class="blockquote-footer mt-3 fw-bold">— Summit Advisory Board</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-mission text-white text-center">
+  <div class="container position-relative" style="z-index: 2;">
+    <h2 class="display-6 fw-bold mb-3 text-white">Join the Movement for Change</h2>
+    <p class="lead mb-4 opacity-75 mx-auto" style="max-width: 650px; font-size: 1.1rem;">
+      Be part of Nigeria's premier platform for women's leadership transformation. Secure your seat at the 2026 summit.
+    </p>
+    <a href="register.html" class="btn-cta-light">Register For The 2026 Summit</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-modern">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <h5 class="text-white"><i class="fas fa-ribbon text-primary-color me-2"></i> WIBP SUMMIT</h5>
+        <p class="small opacity-75">
+          Africa's foundational elite forum honoring, bridging, and empowering structural female decision-makers across corporate sectors and government chambers.
+        </p>
+      </div>
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h5>Navigation</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home Base</a></li>
+          <li><a href="about.html">About Context</a></li>
+          <li><a href="awards.html">Accolades</a></li>
+          <li><a href="mission.html">Our Directives</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Summit Coordination</h5>
+        <ul class="list-unstyled small opacity-75">
+          <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> A-Class Event Center, Abuja</li>
+          <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +234 803 555 0192</li>
+          <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> info@wibpsummit.org</li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Executive Circular</h5>
+        <p class="small opacity-75 mb-3">Subscribe for panel drops, keynote announcements, and verification windows.</p>
+        <div class="footer-input-group">
+          <input type="email" placeholder="Corporate Email Address" aria-label="Corporate Email Address">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center small opacity-50 mt-5 pt-4 border-top border-secondary">
+      &copy; 2026 Women in Business and Politics Summit. Formulated with architectural precision. Abuja, Nigeria.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
