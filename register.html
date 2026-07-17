@@ -467,18 +467,16 @@
         <div class="step-panel" data-step="2">
           <span class="section-sub">Step 2</span>
           <h2>Registration Details</h2>
-          <p class="lead-text">Select your ticket type and let us know about your attendance preferences.</p>
+          <p class="lead-text">Select your pass type and let us know about your attendance preferences.</p>
 
           <div class="form-floating-custom">
-            <label for="ticketType">Ticket Type *</label>
+            <label for="ticketType">Pass Type *</label>
             <select class="form-select" id="ticketType" name="ticketType" required>
-              <option value="">Select your ticket type</option>
-              <option value="Standard">Standard – ₦150,000</option>
-              <option value="VIP">VIP – ₦350,000 (Includes Gala Dinner)</option>
-              <option value="Corporate">Corporate Table (5 seats) – ₦700,000</option>
-              <option value="Student">Student / NGO – ₦75,000</option>
+              <option value="">Select your pass type</option>
+              <option value="General Delegate Access">General Delegate Access – Free</option>
+              <option value="VIP Summit Pass">VIP Summit Pass – Free (Includes Gala Access)</option>
             </select>
-            <div class="invalid-feedback">Please select a ticket type.</div>
+            <div class="invalid-feedback">Please select a pass type.</div>
           </div>
 
           <div class="form-floating-custom">
@@ -499,7 +497,7 @@
           </div>
 
           <div class="ticket-summary" id="ticketSummary">
-            <div class="row-item"><span class="label">Ticket Type</span><span class="value" id="summaryTicket">–</span></div>
+            <div class="row-item"><span class="label">Pass Type</span><span class="value" id="summaryTicket">–</span></div>
             <div class="row-item"><span class="label">Price</span><span class="value" id="summaryPrice">–</span></div>
             <div class="row-item total"><span class="label">Total</span><span class="value" id="summaryTotal">–</span></div>
           </div>
@@ -510,7 +508,7 @@
           </div>
         </div>
 
-        <!-- STEP 3: Confirmation & Payment -->
+        <!-- STEP 3: Confirmation & Submission -->
         <div class="step-panel" data-step="3">
           <span class="section-sub">Step 3</span>
           <h2>Confirm & Submit</h2>
@@ -521,7 +519,7 @@
             <div class="row-item"><span class="label">Email</span><span class="value" id="finalEmail">–</span></div>
             <div class="row-item"><span class="label">Phone</span><span class="value" id="finalPhone">–</span></div>
             <div class="row-item"><span class="label">Organization</span><span class="value" id="finalOrg">–</span></div>
-            <div class="row-item"><span class="label">Ticket</span><span class="value" id="finalTicket">–</span></div>
+            <div class="row-item"><span class="label">Pass Plan</span><span class="value" id="finalTicket">–</span></div>
             <div class="row-item total"><span class="label">Total Due</span><span class="value" id="finalTotal">–</span></div>
           </div>
 
@@ -617,10 +615,8 @@
     const summaryTotal = document.getElementById('summaryTotal');
 
     const ticketPrices = {
-      'Standard': '₦150,000',
-      'VIP': '₦350,000',
-      'Corporate': '₦700,000',
-      'Student': '₦75,000'
+      'General Delegate Access': 'Free',
+      'VIP Summit Pass': 'Free'
     };
 
     ticketSelect.addEventListener('change', function() {
@@ -628,11 +624,11 @@
       const price = ticketPrices[selected] || '–';
       summaryTicket.textContent = selected || '–';
       summaryPrice.textContent = price;
-      summaryTotal.textContent = price;
+      summaryTotal.textContent = price === 'Free' ? '₦0' : price;
       
       // Also update final summary
       document.getElementById('finalTicket').textContent = selected || '–';
-      document.getElementById('finalTotal').textContent = price;
+      document.getElementById('finalTotal').textContent = price === 'Free' ? '₦0' : price;
     });
 
     // --- Step Navigation Function ---
