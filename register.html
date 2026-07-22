@@ -15,6 +15,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+
   <style>
     :root {
       --primary: #800020;
@@ -410,8 +414,8 @@
         <span class="step-dot" data-step="3"></span>
       </div>
 
-      <!-- Form (uses Formspree) -->
-      <form id="registrationForm" action="https://formspree.io/f/xnjepkdo" method="POST">
+      <!-- Form – EmailJS integration (no Formspree action) -->
+      <form id="registrationForm">
         
         <!-- STEP 1: Personal Information -->
         <div class="step-panel active" data-step="1">
@@ -600,15 +604,30 @@
 
 <!-- JAVASCRIPT -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // --- Step Navigation ---
-    let currentStep = 1;
-    const totalSteps = 3;
+  (function() {
+    // --- EMAILJS CONFIG ---
+    // ⚠️ REPLACE WITH YOUR OWN KEYS FROM EMAILJS DASHBOARD
+    const EMAILJS_PUBLIC_KEY = 't5krBUt7-4_-ka-7m';      // e.g. 'dFp9K8...'
+    const EMAILJS_SERVICE_ID = 'service_4p2t1na';      // e.g. 'service_wibp'
+    const EMAILJS_TEMPLATE_ID = 'template_dgt81z9'; // e.g. 'template_confirm'
+
+    // Initialize EmailJS
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // --- DOM refs ---
+    const form = document.getElementById('registrationForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+
     const stepPanels = document.querySelectorAll('.step-panel');
     const stepDots = document.querySelectorAll('.step-dot');
     const currentStepDisplay = document.getElementById('currentStepDisplay');
 
-    // --- Ticket Summary Update ---
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    // --- Ticket summary ---
     const ticketSelect = document.getElementById('ticketType');
     const summaryTicket = document.getElementById('summaryTicket');
     const summaryPrice = document.getElementById('summaryPrice');
@@ -625,23 +644,16 @@
       summaryTicket.textContent = selected || '–';
       summaryPrice.textContent = price;
       summaryTotal.textContent = price === 'Free' ? '₦0' : price;
-      
-      // Also update final summary
       document.getElementById('finalTicket').textContent = selected || '–';
       document.getElementById('finalTotal').textContent = price === 'Free' ? '₦0' : price;
     });
 
-    // --- Step Navigation Function ---
+    // --- Step navigation ---
     window.goToStep = function(step) {
       if (step < 1 || step > totalSteps) return;
-      
-      // Validate current step before proceeding
       if (step > currentStep) {
-        if (!validateStep(currentStep)) {
-          return;
-        }
+        if (!validateStep(currentStep)) return;
       }
-
       currentStep = step;
       updateUI();
     };
@@ -649,10 +661,8 @@
     function validateStep(step) {
       const panel = document.querySelector(`.step-panel[data-step="${step}"]`);
       if (!panel) return true;
-
       const inputs = panel.querySelectorAll('input[required], select[required], textarea[required]');
       let isValid = true;
-
       inputs.forEach(input => {
         if (!input.value.trim()) {
           input.classList.add('is-invalid');
@@ -661,15 +671,11 @@
           input.classList.remove('is-invalid');
         }
       });
-
-      // Special validation for email
       const email = document.getElementById('email');
       if (email && email.value && !email.value.includes('@')) {
         email.classList.add('is-invalid');
         isValid = false;
       }
-
-      // Check terms on step 3
       if (step === 3) {
         const termsCheck = document.getElementById('termsCheck');
         if (!termsCheck.checked) {
@@ -679,35 +685,22 @@
           termsCheck.classList.remove('is-invalid');
         }
       }
-
       return isValid;
     }
 
     function updateUI() {
-      // Update panels
       stepPanels.forEach(panel => {
         panel.classList.remove('active');
         const panelStep = parseInt(panel.getAttribute('data-step'));
-        if (panelStep === currentStep) {
-          panel.classList.add('active');
-        }
+        if (panelStep === currentStep) panel.classList.add('active');
       });
-
-      // Update dots
       stepDots.forEach(dot => {
         const dotStep = parseInt(dot.getAttribute('data-step'));
         dot.classList.remove('active', 'completed');
-        if (dotStep === currentStep) {
-          dot.classList.add('active');
-        } else if (dotStep < currentStep) {
-          dot.classList.add('completed');
-        }
+        if (dotStep === currentStep) dot.classList.add('active');
+        else if (dotStep < currentStep) dot.classList.add('completed');
       });
-
-      // Update step display
       currentStepDisplay.textContent = currentStep;
-
-      // Update final summary data
       if (currentStep === 3) {
         const firstName = document.getElementById('firstName').value || '–';
         const lastName = document.getElementById('lastName').value || '–';
@@ -718,74 +711,90 @@
       }
     }
 
-    // --- Form Submission ---
-    const form = document.getElementById('registrationForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const submitText = document.getElementById('submitText');
-    const submitSpinner = document.getElementById('submitSpinner');
+    // --- Real-time validation ---
+    document.querySelectorAll('input[required], select[required]').forEach(input => {
+      input.addEventListener('input', function() {
+        if (this.value.trim()) this.classList.remove('is-invalid');
+      });
+    });
 
+    // --- FORM SUBMISSION (EmailJS) ---
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Final validation
-      if (!validateStep(3)) {
-        return;
-      }
+      // Validate step 3
+      if (!validateStep(3)) return;
 
-      // Disable button and show spinner
+      // Disable button, show spinner
       submitBtn.disabled = true;
-      submitText.textContent = 'Submitting...';
+      submitText.textContent = 'Sending...';
       submitSpinner.classList.remove('d-none');
 
-      // Submit via Fetch to Formspree
-      const formData = new FormData(form);
-      
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-        if (response.ok) {
-          // Show success
+      // Gather data
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const organization = document.getElementById('organization').value.trim() || 'Not provided';
+      const jobTitle = document.getElementById('jobTitle').value.trim() || 'Not provided';
+      const ticketType = document.getElementById('ticketType').value || 'Not selected';
+      const dietary = document.getElementById('dietary').value || 'None';
+      const specialRequests = document.getElementById('specialRequests').value.trim() || 'None';
+
+      // Build template parameters (adjust to your EmailJS template variables)
+      const templateParams = {
+        to_email: email,
+        to_name: firstName,
+        from_name: 'WIBP Summit 2026',
+        first_name: firstName,
+        last_name: lastName,
+        full_name: `${firstName} ${lastName}`,
+        email: email,
+        phone: phone,
+        organization: organization,
+        job_title: jobTitle,
+        ticket_type: ticketType,
+        dietary: dietary,
+        special_requests: specialRequests,
+        // You can add more fields as needed
+        registration_date: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' })
+      };
+
+      // Send via EmailJS
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          // Show success panel
           stepPanels.forEach(panel => panel.classList.remove('active'));
           document.getElementById('successPanel').classList.add('active');
-          
-          // Hide step indicator
           document.querySelector('.step-indicator').style.display = 'none';
           document.querySelector('.step-label').style.display = 'none';
-          
-          // Reset form
           form.reset();
-        } else {
-          throw new Error('Form submission failed');
-        }
-      })
-      .catch(error => {
-        alert('There was an error submitting your registration. Please try again or contact support.');
-        console.error('Form submission error:', error);
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitText.textContent = 'Complete Registration';
-        submitSpinner.classList.add('d-none');
-      });
+          // Reset ticket summary
+          summaryTicket.textContent = '–';
+          summaryPrice.textContent = '–';
+          summaryTotal.textContent = '–';
+          document.getElementById('finalTicket').textContent = '–';
+          document.getElementById('finalTotal').textContent = '–';
+        })
+        .catch(function(error) {
+          console.error('FAILED...', error);
+          alert('There was an error sending your registration. Please try again or contact support.\n\n' + error.text);
+        })
+        .finally(function() {
+          submitBtn.disabled = false;
+          submitText.textContent = 'Complete Registration';
+          submitSpinner.classList.add('d-none');
+        });
     });
 
-    // --- Real-time validation on input ---
-    document.querySelectorAll('input[required], select[required]').forEach(input => {
-      input.addEventListener('input', function() {
-        if (this.value.trim()) {
-          this.classList.remove('is-invalid');
-        }
-      });
-    });
-
-    // --- Initialize ---
+    // --- Init ---
     updateUI();
-  });
+
+    // If you want to test with a dummy key, uncomment and replace above.
+    // For production, replace placeholders with your actual EmailJS credentials.
+    console.log('EmailJS integration ready. Replace YOUR_PUBLIC_KEY, service_id, template_id with actual values.');
+  })();
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
